@@ -45,7 +45,24 @@ export default function PlaceDetails() {
             <span className="flex items-center"><Star className="h-4 w-4 text-yellow-500 mr-1" />{lugar.puntuacion}</span>
           </div>
           <p className="mb-4 text-lg">{lugar.descripcion}</p>
-          {/* Aquí puedes agregar más detalles, botones, mapa, etc. */}
+          {/* Mapa de Google Maps */}
+          {lugar.ubicacion && (
+            <div className="mt-6">
+              <h2 className="text-lg font-semibold mb-2">Ubicación en el mapa</h2>
+              <div className="w-full h-64 rounded overflow-hidden border">
+                <iframe
+                  title="Mapa"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(lugar.ubicacion)}&output=embed`}
+                ></iframe>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
