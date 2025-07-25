@@ -3,9 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, MessageCircle, Star, MapPin, Users, Coffee } from "lucide-react";
 import heroImage from "@/assets/hero-jama.jpg";
+import { Helmet } from 'react-helmet-async';
 
 const Index = () => {
   return (
+    <>
+      <Helmet>
+        <title>Jama - Encuentra el lugar perfecto para ti</title>
+        <meta name="description" content="Recomendaciones inteligentes de lugares para trabajar, comer y socializar. Descubre tu próximo destino con Jama." />
+      </Helmet>
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
@@ -200,6 +206,7 @@ const Index = () => {
         </div>
       </footer>
     </div>
+    </>
   );
 };
 
