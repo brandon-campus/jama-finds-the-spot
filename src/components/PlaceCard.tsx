@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, MapPin, Clock, DollarSign, Wifi, Heart, ExternalLink } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 interface Place {
   id: string;
@@ -22,6 +23,7 @@ interface PlaceCardProps {
 }
 
 export const PlaceCard = ({ place }: PlaceCardProps) => {
+  const navigate = useNavigate();
   const getFeatureIcon = (feature: string) => {
     if (feature.toLowerCase().includes('wifi')) return <Wifi className="h-3 w-3" />;
     if (feature.toLowerCase().includes('precio') || feature.toLowerCase().includes('happy')) return <DollarSign className="h-3 w-3" />;
@@ -29,7 +31,7 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
   };
 
   return (
-    <Card className="shadow-card hover:shadow-warm transition-smooth overflow-hidden">
+    <Card className="shadow-card hover:shadow-warm transition-smooth overflow-hidden cursor-pointer" onClick={() => navigate(`/place/${place.id}`)}>
       <div className="flex flex-col md:flex-row">
         {/* Image */}
         <div className="md:w-1/3 h-48 md:h-auto relative">
